@@ -1,0 +1,18 @@
+<div class="list-group">
+    <div class="list-group-item">
+        <div class="media">
+            <div class="media-left">
+                <img src="{{libro.img}}" class="media-object" style="width:300px;padding-right:10px">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"><span class="text-danger">{{ libro.titulo | uppercase }}</span> -
+                    <span class="text-primary">{{libro.autor}}</span>
+                </h4>
+                <p class="text-justify ">
+                    {{libro.descripcion}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <a [routerLink]="['/contenido']">Volver al listado</a>
+</div>
