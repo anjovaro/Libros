@@ -8,13 +8,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { FormsModule } from '@angular/forms';
+import { PipeTransformPipe } from './pipes/pipe-transform.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContenidoComponent,
-    DetalleComponent
+    DetalleComponent,
+    PipeTransformPipe
   ],
   imports: [
     BrowserModule,

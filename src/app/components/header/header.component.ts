@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Libro } from 'src/app/models/libro.model';
 import { LibrosService } from 'src/app/services/libros.service';
@@ -11,28 +10,18 @@ import { LibrosService } from 'src/app/services/libros.service';
 export class HeaderComponent implements OnInit {
 
   libros: Libro[];
+  numLibros: number;
 
-  constructor(private librosService: LibrosService) { }
-
-  ngOnInit(): void {
-    this.libros = this.librosService.getAll();
-    /*   HttpClient.get('./assest/libros.json',)
-        .subscribe(data => {   // data is already a JSON object
-          console.log(data['titulo']);
-        }); */
-    // $http.get('libros.json')
-    //     .then(function(res) {
-    //         $scope.libros = res.data;
-    //     });
+  constructor(private librosService: LibrosService) {
+    this.librosService.getAll()
+    // .then(posts => { this.libros = posts;
+    //                  this.numLibros = this.libros.length;
+    //                  return this.libros;
+    //  }) or
+    .then(posts => this.libros = posts)
+    .then( () => this.numLibros = this.libros.length)
+    .catch(error => console.log(error));
   }
 
+  ngOnInit(): void {}
 }
-// $http.get('libros.json')
-//         .then(function(res) {
-//             $scope.libros = res.data;
-//         });
-//     // elegir el criterio de ordenación
-//     $scope.ordenarPor = function(x) {
-//         $scope.orden = x;
-//     };
-    // $scope.paramValue = $routeParams.id

@@ -17,7 +17,7 @@ export class DetalleComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      console.log('Prámetro libroId: ' + params.libroId);
+      console.log('Parámetro libroId: ' + params.libroId);
       // tslint:disable-next-line: radix
       this.indice = parseInt(params.libroId);
       this.libro = this.librosService.getLibro(this.indice);

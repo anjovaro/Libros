@@ -16,9 +16,9 @@
     </div>
     <!-- listado de libros -->
     <div class="list-group">
-        <div class="list-group-item" *ngFor="let libro of libros">
+        <div class="list-group-item" *ngFor="let libro of libros | pipeTransform: filtro; index as i">
             <div class="d-flex position-relative">
-                <a [routerLink]="['/detalle/libro.id']">
+                <a [routerLink]="['/detalle', i]">
                     <img src="{{libro.img}}" class="align-self-start mr-3" style="width:110px;padding-right:10px">
                 </a>
                 <div>
