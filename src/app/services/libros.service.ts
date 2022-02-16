@@ -16,8 +16,8 @@ export class LibrosService {
     console.log('array de libros generado en el servicio');
   }
 
-  getAll(): Promise<any[]> {
-    return this.httpClient.get<any[]>(this.baseURL).toPromise();
+  getAll(): Promise<Libro[]> {
+    return this.httpClient.get<Libro[]>(this.baseURL).toPromise();
   }
 
   countLibros(): number {
@@ -39,7 +39,7 @@ export class LibrosService {
 
   getOrdered(criterio: string): Libro[] {
     if (criterio === 'autor') {
-      this.libros.sort((a: any, b: any) => {
+      this.libros.sort((a: Libro, b: Libro) => {
         if (a.autor > b.autor) {
           return 1;
         }
@@ -49,7 +49,7 @@ export class LibrosService {
         return 0;
       });
     } else if (criterio === 'titulo') {
-      this.libros.sort((a: any, b: any) => {
+      this.libros.sort((a: Libro, b: Libro) => {
         if (a.titulo > b.titulo) {
           return 1;
         }
@@ -59,7 +59,7 @@ export class LibrosService {
         return 0;
       });
     } else if (criterio === 'desordenado') {
-      this.libros.sort((a: any, b: any) => {
+      this.libros.sort((a: Libro, b: Libro) => {
         if (a.id > b.id) {
           return 1;
         }
@@ -68,9 +68,6 @@ export class LibrosService {
         }
         return 0;
       });
-      /* this.getAll()
-      .then(posts => this.libros = posts)
-      .catch(error => console.log(error)); */
     }
     return this.libros;
   }

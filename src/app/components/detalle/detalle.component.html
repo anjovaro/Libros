@@ -7,12 +7,16 @@
                     <h4 class="media-heading"><span class="text-danger">{{ libro.titulo | uppercase }}</span> -
                         <span class="text-primary">{{libro.autor}}</span>
                     </h4>
-                    <p>
-                        {{libro.descripcion}}
-                    </p>
+                    <p class="text-sm-justify"> {{libro.descripcion}}</p>
                 </div>
+                  
             </div>
-        </div>
+            <!-- <div class="row"> -->
+                <div class="d-grid d-md-flex justify-content-md-end">
+                    <button [routerLink]="['/contenido']" class="btn btn-primary">Volver</button>
+                </div> 
+            <!-- </div>  -->
+        </div>   
     </div>
-    <a [routerLink]="['/contenido']">Volver al listado</a>
-</div>
+    <p class="d-grid d-md-flex justify-content-md-end">&copy; By A.J.V.R. (2020) </p>
+</div>    

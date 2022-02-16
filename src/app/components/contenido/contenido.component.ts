@@ -11,13 +11,12 @@ import { PipeTransformPipe } from '../../pipes/pipe-transform.pipe';
 })
 export class ContenidoComponent implements OnInit {
 
-  libros: Libro[];
-  orden: string;
-  filtro: string;
+  libros: Libro[] = [];
+  orden: string = '';
+  filtro: string = '';
+  estilo = 'width:110px;padding-right:10px';
 
   constructor(private librosService: LibrosService) {
-    this.orden = '';
-    this.filtro = '';
   }
 
   ngOnInit(): void {

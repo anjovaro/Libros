@@ -45,5 +45,13 @@
          "editorial": "Planeta de Libros",
          "descripcion": "En 1984, los ciudadanos de Londres ya no distinguen entre el aspecto privado y público de sus vidas. Empleando sus técnicas de vigilancia sobre la población, el Gran Hermano les ha arrebatado la intimidad. Winston Smith es un funcionario cuyo trabajo consiste en escribir y reescribir la historia para el Ministerio de la Verdad, una de las instituciones del estado totalitario que subyuga al ciudadano. Un día, Smith siente que ya no quiere formar parte de los engranajes del sistema opresivo.",
          "img": "assets/img/img6.jpg"
-     }
+     },
+     {
+        "id": "7",
+        "titulo": "El señor de los anillos",
+        "autor": "J. R. R. Tolkien",
+        "editorial": "Booket",
+        "descripcion": "Su historia se desarrolla en la Tercera Edad del Sol de la Tierra Media, un lugar ficticio poblado por hombres y otras razas antropomorfas como los hobbits, los elfos o los enanos, así como por muchas otras criaturas reales y fantásticas. La novela narra el viaje del protagonista principal, Frodo Bolsón, hobbit de la Comarca, para destruir el Anillo Único y la consiguiente guerra que provocará el enemigo para recuperarlo, ya que es la principal fuente de poder de su creador, el Señor oscuro, Sauron. ",
+        "img": "assets/img/img7.jpg"
+    }
  ]
