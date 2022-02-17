@@ -1,7 +1,7 @@
 import { Component, OnInit, PipeTransform } from '@angular/core';
 import { Libro } from 'src/app/models/libro.model';
 import { LibrosService } from 'src/app/services/libros.service';
-import { PipeTransformPipe } from '../../pipes/pipe-transform.pipe';
+import { PipeTransformPipe } from 'src/app/pipes/pipe-transform.pipe';
 
 
 @Component({
@@ -20,9 +20,9 @@ export class ContenidoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.librosService.getAll()
-    .then(posts => this.libros = posts)
-    .catch(error => console.log(error));
+    this.librosService.getAll().subscribe((data) => this.libros = data);
+    // .then(posts => this.libros = posts)
+    // .catch(error => console.log(error));
   }
 
   onChange($event): void {

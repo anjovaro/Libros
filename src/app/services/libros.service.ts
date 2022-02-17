@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Libro } from '../models/libro.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,15 +10,21 @@ export class LibrosService {
   libros: Libro[];
   baseURL = 'assets/libros.json';
 
-  constructor(private httpClient: HttpClient) {
-    this.getAll()
-      .then((posts) => (this.libros = posts))
-      .catch((error) => console.log(error));
+  constructor(private http: HttpClient) {
+    this.loadLibros();
+    //   .then((posts) => (this.libros = posts))
+    //   .catch((error) => console.log(error));
     console.log('array de libros generado en el servicio');
+    console.log('Libros: ', this.libros);
   }
 
-  getAll(): Promise<Libro[]> {
-    return this.httpClient.get<Libro[]>(this.baseURL).toPromise();
+  getAll(): Observable<Libro[]> {
+    return this.http.get<Libro[]>(this.baseURL,{observe: 'body', responseType: 'json'}); //.toPromise();
+  }
+
+  loadLibros():void {
+    this.getAll().subscribe((data) => this.libros = data);
+    console.log('loadLibros: ', this.libros);
   }
 
   countLibros(): number {
