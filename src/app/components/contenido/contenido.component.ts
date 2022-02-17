@@ -21,6 +21,7 @@ export class ContenidoComponent implements OnInit {
 
   ngOnInit(): void {
     this.librosService.getAll().subscribe((data) => this.libros = data);
+    console.log('Contenido Component Libros: ', this.libros);
     // .then(posts => this.libros = posts)
     // .catch(error => console.log(error));
   }

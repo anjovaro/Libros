@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   numLibros: number;
 
   constructor(private librosService: LibrosService) {
-    this.librosService.getAll().subscribe((data) => this.libros = data); // con observables
+    //this.librosService.getAll().subscribe((data) => this.libros = data); // con observables
     
     // .then(posts => { this.libros = posts;                             // con promesas
     //                  this.numLibros = this.libros.length;
@@ -25,9 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.librosService.getAll().subscribe((data) => this.libros = data); // con observables
-    this.numLibros = this.libros.length;
-    this.numLibros = this.librosService.countLibros();
-    console.log('En header, numLibros: ', this.numLibros);
+    this.librosService.getAll().subscribe((data) => { this.libros = data;
+                                                      this.numLibros = this.libros.length}); // con observables
   }
 }
