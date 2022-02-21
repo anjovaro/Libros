@@ -9,32 +9,31 @@ import { Observable } from 'rxjs';
 export class LibrosService {
   libros: Libro[];
   baseURL = 'assets/libros.json';
+  numLibros: number = 0;
 
   constructor(private http: HttpClient) {
     this.loadLibros();
-    //   .then((posts) => (this.libros = posts))
-    //   .catch((error) => console.log(error));
-    console.log('array de libros generado en el servicio');
-    console.log('Libros: ', this.libros);
+    console.log('Servicio, array de libros generado');
   }
 
   getAll(): Observable<Libro[]> {
-    return this.http.get<Libro[]>(this.baseURL,{observe: 'body', responseType: 'json'}); //.toPromise();
+    return this.http
+    .get<Libro[]>(this.baseURL,
+    {observe: 'body', responseType: 'json'}); //.toPromise();
   }
 
   loadLibros():void {
-    this.getAll().subscribe((data) => this.libros = data);
-    console.log('loadLibros: ', this.libros);
+    this.getAll()
+    .subscribe((data) => {this.libros = data;
+                          this.numLibros= data.length;
+                        console.log('Observable: ',this.numLibros);});
   }
 
   countLibros(): number {
-    console.log('Servicio: número de libros ' + this.libros.length);
-    return this.libros.length;
-  }
-
-  /*  getAll(): Libro[] {
-    return this.libros;
-  } */
+    this.numLibros = this.libros.length;
+    console.log('Servicio, número de libros: ' + this.libros.length);
+    return this.numLibros;
+  } 
 
   getLibro(pLibroId: number): Libro {
     return this.libros[pLibroId];

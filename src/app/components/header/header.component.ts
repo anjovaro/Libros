@@ -12,20 +12,10 @@ export class HeaderComponent implements OnInit {
   libros: Libro[];
   numLibros: number;
 
-  constructor(private librosService: LibrosService) {
-    //this.librosService.getAll().subscribe((data) => this.libros = data); // con observables
-    
-    // .then(posts => { this.libros = posts;                             // con promesas
-    //                  this.numLibros = this.libros.length;
-    //                  return this.libros;
-    //  }) or
-    // .then(posts => this.libros = posts)
-    // .then( () => this.numLibros = this.libros.length)
-    // .catch(error => console.log(error));
-  }
+  constructor(private librosService: LibrosService) {}
 
   ngOnInit(): void {
     this.librosService.getAll().subscribe((data) => { this.libros = data;
-                                                      this.numLibros = this.libros.length}); // con observables
+                                                      this.numLibros = this.librosService.countLibros()}); // con observables
   }
 }

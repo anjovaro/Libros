@@ -21,6 +21,7 @@ export class DetalleComponent implements OnInit {
       // tslint:disable-next-line: radix
       this.indice = parseInt(params.libroId);
       this.libro = this.librosService.getLibro(this.indice);
+      console.log("libro en detalle: ", this.libro);
     });
   }
 
